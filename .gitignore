@@ -1,0 +1,9 @@
+# Byte-compiled files
+model/__pycache__/
+
+# Log files
+log/
+
+# Some data files
+data/listingStatus.json
+data/list/agentlist.json

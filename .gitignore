@@ -2,7 +2,7 @@
 model/__pycache__/
 
 # Log files
-# *.log
+*.log
 
 # Some data files
 data/listingStatus.json

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2022 at 11:58 AM
+-- Generation Time: Mar 18, 2022 at 08:35 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rumah123scraper`
+-- Database: `scraper`
 --
 
 -- --------------------------------------------------------
@@ -57,7 +57,6 @@ CREATE TABLE `rumah123` (
   `update_timestamp` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `rumah123temp`
@@ -68,12 +67,9 @@ CREATE TABLE `rumah123temp` (
   `url` varchar(120) NOT NULL,
   `update_timestamp` date NOT NULL,
   `response` text NOT NULL,
+  `transacted` int(1) NOT NULL DEFAULT 0,
   `visited` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Indexes for dumped tables
---
 
 --
 -- Indexes for table `rumah123`
@@ -95,13 +91,13 @@ ALTER TABLE `rumah123temp`
 -- AUTO_INCREMENT for table `rumah123`
 --
 ALTER TABLE `rumah123`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `rumah123temp`
 --
 ALTER TABLE `rumah123temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

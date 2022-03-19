@@ -81,9 +81,11 @@ class Rumah123():
         if response: 
             if trial<3:
                 if response.status_code==404:
+                    logging.warning(f'{response.status_code}: {response.url}')
                     self.req(url, session, trial=trial+1)
                 elif response.status_code==429 | response.status_code==403:
                     time.sleep(60)
+                    logging.warning(f'{response.status_code}: {response.url}')
                     self.renewSession(response)
                     self.req(url, session, trial=trial+1)
             # return

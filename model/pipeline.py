@@ -56,14 +56,14 @@ class dbConnection():
 
     def readData(self, item, visited=None, multiple=False):
         if multiple:
-            if visited:
+            if visited is not None:
                 if item.get('transacted')==0 or item.get('transacted')==1:
-                    self.cursor.execute( f'SELECT response FROM rumah123temp WHERE update_timestamp="{item["update_timestamp"]}" AND visited = {visited} AND transacted="{item["transacted"]}"' )
+                    self.cursor.execute( f'SELECT response FROM rumah123temp WHERE update_timestamp="{item["update_timestamp"]}" AND visited = {visited} AND transacted={item["transacted"]}' )
                 else:
                     self.cursor.execute( f'SELECT response FROM rumah123temp WHERE update_timestamp="{item["update_timestamp"]}" AND visited = {visited}' )
             else:
                 if 'transacted' in item:
-                    self.cursor.execute( f'SELECT response FROM rumah123temp WHERE update_timestamp="{item["update_timestamp"]}" AND transacted="{item["transacted"]}"' )
+                    self.cursor.execute( f'SELECT response FROM rumah123temp WHERE update_timestamp="{item["update_timestamp"]}" AND transacted={item["transacted"]}' )
                 else:
                     self.cursor.execute( f'SELECT response FROM rumah123temp WHERE update_timestamp="{item["update_timestamp"]}"' )
             query  = self.cursor.fetchall()

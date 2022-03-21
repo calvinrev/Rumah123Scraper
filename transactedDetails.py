@@ -79,8 +79,10 @@ def main(date=None):
                 getDetails(response, r123, kabkot)
             # show progress
             print(f"Progress: {round(i/len(dataset)*100,2)}% ({i}/{len(dataset)})")
-            if i%100==0:
-                logging.info(f'-- {i} - {response.url} : {response.status_code}')
+            if i%25==0:
+                time.sleep(3)
+                if i%100==0 and response:
+                    logging.info(f'-- {i} - {response.url} : {response.status_code}')
         except Exception as e:
             logging.critical(e, exc_info=True)
     # close db connection & requests connection 

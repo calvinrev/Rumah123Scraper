@@ -70,7 +70,7 @@ class Rumah123():
                 sess     = requests.Session()
                 response = sess.get(url, headers=self.header, stream=True, timeout=60)
                 cookies  = response.cookies.get_dict()
-                if not cookies.get('PHPSESSID'):
+                if cookies.get('_csrf'):
                     self.setSession(sess)
             else:
                 response = requests.get(url, headers=self.header, cookies=self.cookies, stream=True, timeout=300)
@@ -177,7 +177,9 @@ class Rumah123UpdateAgent(Rumah123):
             lastmod = list(l.getText() for l in lastmod)
             agenList = list(zip(loc,lastmod))
             agenList = agenList[0::2] #filter indonesia url version only (odd index)
-            print(len(agenList), 'agents found!')
+            msg = f'{len(agenList)} agents found!'
+            logging.info(msg)
+            print(msg)
             self.saveAgents(agenList)
         except Exception as e:
             logging.critical(e, exc_info=True)

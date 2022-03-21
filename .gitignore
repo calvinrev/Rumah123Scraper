@@ -6,3 +6,4 @@ model/__pycache__/
 
 # Some data files
 data/listingStatus.json
+data/list/agentlist.json
